@@ -11,7 +11,7 @@ export default function NavForm({ numPage, setPage }: { numPage: number, setPage
     return (
         <Pagination className={"py-5 border-t-1 b-gray-200"}>
             <PaginationContent>
-                {numPage !== 1 &&
+
                     <PaginationItem>
                         <PaginationPrevious
                             href="#"
@@ -19,9 +19,12 @@ export default function NavForm({ numPage, setPage }: { numPage: number, setPage
                                 e.preventDefault()
                                 setPage((prev: number) => Math.max(prev - 1, 1))
                             }}
+                            aria-disabled={numPage === 1}
+                            className={
+                                numPage === 1 ? "pointer-events-none opacity-50" : undefined
+                            }
                         />
                     </PaginationItem>
-                }
 
                 {[1, 2, 3].map((page) => {
                     return (
@@ -40,7 +43,6 @@ export default function NavForm({ numPage, setPage }: { numPage: number, setPage
                     )
                 })}
 
-                {numPage !== 3 &&
                   <PaginationItem>
                     <PaginationNext
                         href="#"
@@ -48,9 +50,13 @@ export default function NavForm({ numPage, setPage }: { numPage: number, setPage
                             e.preventDefault()
                             setPage((prev: number) => Math.min(prev + 1, 3))
                         }}
+                        aria-disabled={numPage === 3}
+                        className={
+                            numPage === 3 ? "pointer-events-none opacity-50" : undefined
+                        }
                     />
                   </PaginationItem>
-                }
+
             </PaginationContent>
         </Pagination>
     )

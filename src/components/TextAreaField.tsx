@@ -15,7 +15,6 @@ export default function TextAreaField({
     form,
     formData,
     onFormChange,
-    shortbio,
     name,
     description,
     placeholder,
@@ -35,7 +34,7 @@ export default function TextAreaField({
         name={name}
         render={({ field }) => (
           <FormItem>
-            <FormDescription className="mb-2">
+            <FormDescription className="mt-5">
                 {description}
             </FormDescription>
             <FormControl>

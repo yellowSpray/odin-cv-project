@@ -62,7 +62,9 @@ export default function FormCv({  formData, onFormChange }: { formData: FormData
         </form>
       </Form>
 
-      <NavForm numPage={currentPage} setPage={setCurrentPage} />
+      <div className={"flex flex-row justify-center"}>
+        <NavForm numPage={currentPage} setPage={setCurrentPage} />
+      </div>
 
     </div>
   );

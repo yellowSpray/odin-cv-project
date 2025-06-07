@@ -10,4 +10,5 @@ export interface FormData {
   expstartdate: string,
   expenddate: string,
   location: string,
+  shortDesc: string
 }

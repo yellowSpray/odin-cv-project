@@ -7,21 +7,25 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover.tsx"
-// import type { FormData } from "../types/FormData";
+import type { FormData } from "../types/FormData";
 import type { UseFormReturn } from "react-hook-form";
 import {useState} from "react";
 import { FormField, FormItem } from "@/components/ui/form.tsx";
 
-// type onFormChange = (field: keyof FormData, value: string) => void
+type onFormChange = (field: keyof FormData, value: string) => void
 
 export default function DatePicker({
     form,
+    onFormChange,
     name,
-    label
+    label,
+    title
 }: {
     form: UseFormReturn,
+    onFormChange: onFormChange,
     name: string,
     label: string,
+    title: keyof FormData
 }) {
 
     const [open, setOpen] = useState(false)
@@ -49,9 +53,13 @@ export default function DatePicker({
                                 mode="single"
                                 selected={date}
                                 captionLayout="dropdown"
-                                onSelect={(date) => {
-                                    setDate(date)
-                                    setOpen(false)
+                                {...field}
+                                onSelect={(selectedDate) => {
+                                    if (selectedDate) {
+                                        setDate(selectedDate);
+                                        setOpen(false);
+                                        onFormChange(title, selectedDate.toLocaleDateString("en-GB"));
+                                    }
                                 }}
                             />
                         </PopoverContent>

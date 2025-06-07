@@ -5,10 +5,8 @@ import DatePicker from "@/components/DatePicker.tsx";
 import TextAreaField from "@/components/TextAreaField.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import { Plus } from 'lucide-react';
-// import { Textarea } from "./ui/textarea";
 
 type onFormChange = (field: keyof FormData, value: string) => void
-
 
 export default function Experience({ form, formData, onFormChange }: {
     form: UseFormReturn,
@@ -46,13 +44,19 @@ export default function Experience({ form, formData, onFormChange }: {
                 <div className="flex flex-row gap-2 justify-between">
                     <DatePicker
                         form={form}
+                        formData={formData}
+                        onFormChange={onFormChange}
                         name={"expstartdate"}
                         label={"Start Date"}
+                        title={"expstartdate"}
                     />
                     <DatePicker
                         form={form}
+                        formData={formData}
+                        onFormChange={onFormChange}
                         name={"expenddate"}
                         label={"End Date"}
+                        title={"expenddate"}
                     />
                 </div>
 
