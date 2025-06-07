@@ -14,7 +14,12 @@ function App() {
     lastname: '',
     address: '',
     email: '',
-    bio: ''
+    shortBio: '',
+    expjobtitle: '',
+    company: '',
+    expstartdate: '',
+    expenddate: '',
+    location: '',
   })
 
   const handleFormData = (field: keyof FormData, value: string) => {

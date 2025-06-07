@@ -4,5 +4,10 @@ export interface FormData {
   lastname: string,
   address: string,
   email: string,
-  bio: string
+  shortBio: string,
+  expjobtitle: string,
+  company: string,
+  expstartdate: string,
+  expenddate: string,
+  location: string,
 }
